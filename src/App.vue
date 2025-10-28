@@ -1,15 +1,24 @@
 <script setup>
-import { getMovies } from './api/tmdb'
-
-getMovies().then((data) => {
-  if (!data) return
-  console.log('data:', data)
-  console.log('Results:', data.results)
-})
+import AppHeader from './components/AppHeader.vue'
+import MovieList from './components/MovieList.vue'
+MovieList
 </script>
 
 <template>
-  <div class="app"></div>
+  <div class="app">
+    <header class="header-container">
+      <AppHeader />
+    </header>
+    <div class="container">
+      <MovieList />
+    </div>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.header-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0;
+}
+</style>

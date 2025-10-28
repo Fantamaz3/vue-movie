@@ -7,7 +7,7 @@ const options = {
 }
 
 export async function getMovies() {
-  const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=1&sort_by=popularity.desc`
+  const url = `https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=ru-RU&page=1&sort_by=popularity.desc`
 
   try {
     const response = await fetch(url, options)
