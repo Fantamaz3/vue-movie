@@ -10,7 +10,6 @@ onMounted(async () => {
   if (data?.results) {
     movies.value = data.results.slice(0, 10)
   }
-  console.log('movies', movies.value[0].title)
 })
 </script>
 
@@ -22,9 +21,6 @@ onMounted(async () => {
 
 <style scoped>
 .movies-grid {
-  /* display: grid;
-  grid-template-columns: repeat(5, 1fr); */
-  /* gap: 60px; */
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
