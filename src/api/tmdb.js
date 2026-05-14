@@ -23,19 +23,37 @@ export async function getMovies() {
   }
 }
 
-//Запрос к конфигурациям img
-async function getConfigurations() {
-  const url = `https://api.themoviedb.org/3/configuration`
+export async function searchMovies(query) {
+  const url = `https://api.themoviedb.org/3/search/movie?query=${encodeURIComponent(query)}&include_adult=false&language=ru-RU&page=1`
 
   try {
     const response = await fetch(url, options)
+
     if (!response.ok) {
       throw new Error(`Ошибка: ${response.status}`)
     }
-    const configurationData = await response.json()
-    return configurationData
+
+    const data = await response.json()
+    return data
   } catch (error) {
-    console.error('Ошибка при получении конфигураций', error)
+    console.error('Ошибка при поиске фильмов', error)
+    return null
   }
 }
-console.log(getConfigurations())
+
+//Запрос к конфигурациям img
+// async function getConfigurations() {
+//   const url = `https://api.themoviedb.org/3/configuration`
+
+//   try {
+//     const response = await fetch(url, options)
+//     if (!response.ok) {
+//       throw new Error(`Ошибка: ${response.status}`)
+//     }
+//     const configurationData = await response.json()
+//     return configurationData
+//   } catch (error) {
+//     console.error('Ошибка при получении конфигураций', error)
+//   }
+// }
+// console.log(getConfigurations())
